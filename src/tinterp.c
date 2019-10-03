@@ -59,9 +59,6 @@ void tinterp_parse(char* str)
                     case 's':
                         argv[arg_n].s = tok;
                         break;
-                    case 'f':
-                        argv[arg_n].f = strtof(tok, NULL);
-                        break;
                     case 'i':
                         argv[arg_n].ui = strtoul(tok, NULL, 0);
                         break;

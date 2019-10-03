@@ -15,9 +15,6 @@ void check_callback(uint32_t argc, tinterp_arg_t* argv)
             case 's':
                 ck_assert_msg(strcmp(argv[i].s, glob_argv[i].s) == 0, "argv[%0d]: expected \"%s\", got \"%s\"", i, glob_argv[i].s, argv[i].s);
                 break;
-            case 'f':
-                ck_assert_msg(argv[i].f == glob_argv[i].f, "argv[%0d]: expected %f, got %f", i, glob_argv[i].f, argv[i].f);
-                break;
             case 'i':
                 ck_assert_msg(argv[i].ui == glob_argv[i].ui, "argv[%0d]: expected 0x%08x, got 0x%08x", i, glob_argv[i].ui, argv[i].ui);
                 break;

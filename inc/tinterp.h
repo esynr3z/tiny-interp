@@ -25,7 +25,6 @@ typedef enum {
 typedef union {
     char* s;
     uint32_t ui;
-    float f;
 } tinterp_arg_t;
 
 //-- Exported functions --------------------------------------------------------
