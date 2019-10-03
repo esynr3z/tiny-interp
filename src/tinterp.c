@@ -36,10 +36,11 @@ cmd_t cmd_map[TINTERP_CMDS_TOTAL] = {
 const char* delim = " ";
 
 //-- Exported functions --------------------------------------------------------
-void tinterp_parse(char* str)
+tinterp_status_t tinterp_parse(char* str)
 {
     uint32_t argc = 0;
     tinterp_arg_t argv[TINTERP_CMD_ARGS_MAX];
+    tinterp_status_t retval = TINTERP_FAIL;
 
     // prepare string
     clean_format(str);
@@ -67,9 +68,12 @@ void tinterp_parse(char* str)
                 }
             }
             cmd_map[cmd_n].func(argc, argv);
+            retval = TINTERP_SUCCESS;
             break;
         }
     }
+
+    return retval;
 }
 
 void tinterp_set_callback(tinterp_cmds_t cmd, void (*func)(uint32_t, tinterp_arg_t*))

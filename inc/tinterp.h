@@ -14,6 +14,11 @@
 
 //-- Exported types ------------------------------------------------------------
 typedef enum {
+    TINTERP_SUCCESS = 0,
+    TINTERP_FAIL
+} tinterp_status_t;
+
+typedef enum {
     TINTERP_CMD_HELP = 0,
     TINTERP_CMD_GET_TIME,
     TINTERP_CMD_SET_TIME,
@@ -28,7 +33,7 @@ typedef union {
 } tinterp_arg_t;
 
 //-- Exported functions --------------------------------------------------------
-void tinterp_parse(char* str);
+tinterp_status_t tinterp_parse(char* str);
 void tinterp_set_callback(tinterp_cmds_t cmd, void (*func)(uint32_t, tinterp_arg_t*));
 
 #endif // __TINTERP_H
